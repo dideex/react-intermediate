@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import pf from "petfinder-client";
 import { navigate } from "@reach/router";
 import Carousel from "./Carousel";
@@ -9,7 +9,7 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 
-class Details extends React.Component {
+class Details extends Component {
   state = { loading: true, showModal: false };
   componentDidMount() {
     petfinder.pet
