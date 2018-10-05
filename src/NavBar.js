@@ -1,7 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import styled from "react-emotion";
+import styled, { keyframes } from "react-emotion";
 import colors from "./colors";
+
+const Spin = keyframes`
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+`
+
+const SpyGlass = styled('span')`
+  display: inline-block;
+  animation: 2s ${Spin} linear infinite;
+`
 
 const Container = styled("header")`
   background-color: ${colors.dark};
@@ -15,7 +29,6 @@ const NavLink = styled(Link)`
     text-decoration: underline;
   }
   span {
-    display: inline-block;
     border: 1px solid red;
   }
 `;
@@ -27,9 +40,9 @@ class NavBar extends Component {
       <Container>
         <NavLink to="/">Adopt Me!</NavLink>
         <NavLink to="/search-params">
-          <span aria-label="search" role="img">
+          <SpyGlass aria-label="search" role="img">
             🔍
-          </span>
+          </SpyGlass>
         </NavLink>
       </Container>
     );
