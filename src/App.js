@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import pf from "petfinder-client";
-import Results from "./Results";
+// import Results from "./Results";
 import Loadable from "react-loadable";
-import SearchParams from "./SearchParams";
+// import SearchParams from "./SearchParams";
 import { Provider } from "./SearchContext";
 import NavBar from "./NavBar";
 
@@ -15,6 +15,19 @@ const petfinder = pf({
 
 const LoadabelDetails = Loadable({
   loader: () => import('./Details'),
+  loading() {
+    return <h1>Loading split out code ...</h1>
+  }
+})
+
+const LoadabelResults = Loadable({
+  loader: () => import('./Results'),
+  loading() {
+    return <h1>Loading split out code ...</h1>
+  }
+})
+const LoadabelSearchParapms = Loadable({
+  loader: () => import('./SearchParams'),
   loading() {
     return <h1>Loading split out code ...</h1>
   }
@@ -55,6 +68,10 @@ class App extends React.Component {
   };
   getBreeds() {
     if (this.state.animal) {
+      // const pfPromise = import ('petfinder-client')
+      // pfPrimes.then(pf => {
+
+      // })
       petfinder.breed
         .list({ animal: this.state.animal })
         .then(data => {
@@ -83,9 +100,9 @@ class App extends React.Component {
         <NavBar />
         <Provider value={this.state}>
           <Router>
-            <Results path="/" />
+            <LoadabelResults path="/" />
             <LoadabelDetails path="/details/:id" />
-            <SearchParams path="/search-params" />
+            <LoadabelSearchParapms path="/search-params" />
           </Router>
         </Provider>
       </div>
