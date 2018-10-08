@@ -7,3 +7,8 @@ export default function locationReducer(state = "Seattle, WA", action) {
     return state;
   }
 }
+
+// test("locationREducer", () => {
+//   exprect(locationReducer('Seattle, WA', {type: "SET_LOCATION", payload: "San Francisco, CA"})
+//     .toBe("San Francisco, CA"))
+// })

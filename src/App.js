@@ -7,6 +7,9 @@ import Loadable from "react-loadable";
 // import SearchParams from "./SearchParams";
 import { Provider } from "./SearchContext";
 import NavBar from "./NavBar";
+import { Provider as ReduxProvider } from "react-redux";
+
+import store from "./store";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -14,24 +17,24 @@ const petfinder = pf({
 });
 
 const LoadabelDetails = Loadable({
-  loader: () => import('./Details'),
+  loader: () => import("./Details"),
   loading() {
-    return <h1>Loading split out code ...</h1>
+    return <h1>Loading split out code ...</h1>;
   }
-})
+});
 
 const LoadabelResults = Loadable({
-  loader: () => import('./Results'),
+  loader: () => import("./Results"),
   loading() {
-    return <h1>Loading split out code ...</h1>
+    return <h1>Loading split out code ...</h1>;
   }
-})
+});
 const LoadabelSearchParapms = Loadable({
-  loader: () => import('./SearchParams'),
+  loader: () => import("./SearchParams"),
   loading() {
-    return <h1>Loading split out code ...</h1>
+    return <h1>Loading split out code ...</h1>;
   }
-})
+});
 
 class App extends React.Component {
   constructor(props) {
@@ -98,13 +101,15 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <Provider value={this.state}>
-          <Router>
-            <LoadabelResults path="/" />
-            <LoadabelDetails path="/details/:id" />
-            <LoadabelSearchParapms path="/search-params" />
-          </Router>
-        </Provider>
+        <ReduxProvider store={store}>
+          <Provider value={this.state}>
+            <Router>
+              <LoadabelResults path="/" />
+              <LoadabelDetails path="/details/:id" />
+              <LoadabelSearchParapms path="/search-params" />
+            </Router>
+          </Provider>
+        </ReduxProvider>
       </div>
     );
   }

@@ -1,7 +1,16 @@
-import { combineReducers } from 'redux';
-import location from  "./location"
+import { combineReducers } from "redux";
+import location from "./location";
+import breed from "./breed";
+import breeds from "./breeds";
+import animal from "./animal";
 
 
+export default combineReducers({
+  location,
+  breed,
+  breeds,
+  animal
+});
 
 /* 
 state = {location: "Seattle, WA"}
@@ -17,7 +26,3 @@ const rootReducer = (state, action) => {
   }
 } 
 */
-
-export default combineReducers({
-  location
-})
