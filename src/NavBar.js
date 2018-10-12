@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "@reach/router";
+import React, { Component } from "preact-compat";
+import { Link } from "preact-router";
 import styled, { keyframes } from "react-emotion";
 import colors from "./colors";
 
@@ -38,10 +38,10 @@ class NavBar extends Component {
   render() {
     return (
       <Container>
-        <NavLink to="/">Adopt Me!</NavLink>
-        <NavLink to="/search-params">
-          <SpyGlass aria-label="search" role="img">
-            🔍
+        <NavLink href="/">Adopt Me!</NavLink>
+        <NavLink href="/search-params">
+          <SpyGlass aria-label="search">
+            <span role="img">🔍</span>
           </SpyGlass>
         </NavLink>
       </Container>

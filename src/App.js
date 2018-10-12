@@ -1,5 +1,5 @@
-import React from "react";
-import { Router } from "@reach/router";
+import React from "preact-compat";
+import { Router } from "preact-router";
 import Loadable from "react-loadable";
 import NavBar from "./NavBar";
 import { Provider as ReduxProvider } from "react-redux";
