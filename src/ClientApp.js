@@ -1,5 +1,5 @@
-import React from "preact-compat";
-import { hydrate } from "preact-compat";
-import App from "./App";
+// import React from "preact-compat";
+// import { hydrate } from "preact-compat";
+// import App from "./App";
 
-hydrate(<App />, document.getElemetnById("root"));
+// hydrate(<App />, document.getElemetnById("root"));

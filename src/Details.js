@@ -1,7 +1,8 @@
 import React, { Component } from "preact-compat";
 import pf from "petfinder-client";
 import { route } from "preact-router";
-import Loadable from "react-loadable";
+import ModalContent from "./AdoptModalContent";
+// import Loadable from "react-loadable";
 import Carousel from "./Carousel";
 import Modal from "./Modal";
 
@@ -10,10 +11,10 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 
-const LoadableContent = Loadable({
-  loader: () => import("./AdoptModalContent"),
-  loading: () => <h1>Loading ...</h1>
-});
+// const LoadableContent = Loadable({
+//   loader: () => import("./AdoptModalContent"),
+//   loading: () => <h1>Loading ...</h1>
+// });
 
 class Details extends Component {
   state = { loading: true, showModal: false };
@@ -73,7 +74,7 @@ class Details extends Component {
           {showModal ? (
             <Modal>
               <div>
-                <LoadableContent name={name} toggleModal={this.toggleModal} />
+                <ModalContent name={name} toggleModal={this.toggleModal} />
               </div>
             </Modal>
           ) : null}
