@@ -1,4 +1,4 @@
-import React, { Fragment } from "preact-compat";
+import React, { Fragment } from "react";
 
 // AdoptModalContent stateless component;
 function AdoptModalContent(props) {
