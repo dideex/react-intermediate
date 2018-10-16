@@ -1,11 +1,22 @@
-import React from "preact-compat";
+import React from "react";
 import { ANIMALS } from "petfinder-client";
 import { Consumer } from "./SearchContext";
 import { connect } from "react-redux";
 import { getBreeds, changeAnimal, changeBreed, changeLocation } from "./AC";
 
-class Search extends React.Component {
-  handleFormSubmit = event => {
+interface IProps {
+  handleLocationChange(): void;
+  handleAnimalChange(): void;
+  handleBreedChange(): void;
+  search(): string;
+  location: string;
+  animal: string;
+  breed: string;
+  breeds: string[];
+}
+
+class Search extends React.Component<IProps> {
+  handleFormSubmit = (event: any) => {
     event.preventDefault();
     this.props.search();
   };
@@ -70,14 +81,14 @@ export default connect(
     location
   }),
   dispatch => ({
-    handleAnimalChange(event) {
+    handleAnimalChange(event: React.ChangeEvent<HTMLInputElement>) {
       dispatch(changeAnimal(event.target.value));
       dispatch(getBreeds());
     },
-    handleBreedChange(event) {
+    handleBreedChange(event: React.ChangeEvent<HTMLInputElement>) {
       dispatch(changeBreed(event.target.value));
     },
-    handleLocationChange(event) {
+    handleLocationChange(event: React.ChangeEvent<HTMLInputElement>) {
       dispatch(changeLocation(event.target.value));
     }
   })

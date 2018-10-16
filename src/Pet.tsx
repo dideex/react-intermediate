@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "@reach/router";
-import {PetMedia, PetPhoto} from 'petfinder-client';
+import { PetMedia, PetPhoto } from "petfinder-client";
 
 interface IProps {
-  name: string,
-  animal:  string,
-  breed: string,
-  media: PetMedia,
-  location: string,
-  id: number,
+  name: string;
+  animal: string;
+  breed: string;
+  media: PetMedia;
+  location: string;
+  id: number;
 }
 
 class Pet extends React.Component<IProps> {

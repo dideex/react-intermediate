@@ -1,5 +1,6 @@
-import React, {render} from "preact-compat";
-import { Router } from "preact-router";
+import React from "react";
+import { render } from 'react-dom';
+import { Router } from "@reach/router";
 // import Loadable from "react-loadable";
 import Results from './Results';
 import SearchParapms from './SearchParams';
@@ -29,7 +30,7 @@ import store from "./store";
 // });
 
 class App extends React.Component {
-  render() {
+  public render() {
     return (
       <div>
         <NavBar />
@@ -45,4 +46,4 @@ class App extends React.Component {
   }
 }
 
-render(App, document.getElementById('root'))
+render(<App />, document.getElementById('root'))

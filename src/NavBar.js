@@ -10,12 +10,12 @@ const Spin = keyframes`
   to {
     transform: rotate(360deg)
   }
-`
+`;
 
-const SpyGlass = styled('span')`
+const SpyGlass = styled("span")`
   display: inline-block;
   animation: 2s ${Spin} linear infinite;
-`
+`;
 
 const Container = styled("header")`
   background-color: ${colors.dark};
